@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://angellusmortis.github.io/pyunifiprotect/latest/v4.3.x/cli/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
     
     
       
@@ -21,13 +21,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2e8b5541.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -46,6 +47,7 @@
     
       
 
+    
     
     
   </head>
@@ -164,11 +166,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -847,10 +849,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
   <a href="https://github.com/AngellusMortis/pyunifiprotect/edit/master/docs/cli.md" title="Edit this page" class="md-content__button md-icon">
     
@@ -892,14 +895,20 @@ credentials to provided environment variables, but CLI args are also supported.<
 <p>A number of commands allow you to enter a datetime as an argument or output files with the datetime in the filename. As a result, it is very important for <code>pyunifiprotect</code> to know your consoles local timezone. If you on a physical machine (not docker/VM), chances are this is already set up correctly for you (<code>/etc/localtime</code>), but otherwise you may need to set the <code>TZ</code> environment variable. <code>TZ</code> can also be used to override your system timezone as well if for whatever reason you need to. It should be the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Olson timezone name</a> for the timezone that your UniFi Protect Instance is in.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nv">TZ</span><span class="o">=</span>America/New_York unifi-protect --help
 </code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If for whatever reason your system does not have then correct timezone data, you can install the <code>tz</code> extra to get the data. This just adds the package <a href="https://pypi.org/project/tzdata/">tzdata</a> as a requirement. It is included by default in the <a href="/#using-docker-container">Docker image</a>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>pip install pyunifiprotect<span class="o">[</span>tz<span class="o">]</span>
+</code></pre></div></td></tr></table></div>
+</div>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>$ unifi-protect --help
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Usage: unifi-protect <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>UniFi Protect CLI
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>$ unifi-protect --help
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>Usage: unifi-protect <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>UniFi Protect CLI
 </code></pre></div></td></tr></table></div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
 <table>
@@ -1068,27 +1077,27 @@ credentials to provided environment variables, but CLI args are also supported.<
 </table>
 <h4 id="multiple-item-cli-commands">Multiple Item CLI Commands<a class="headerlink" href="#multiple-item-cli-commands" title="Permanent link">&para;</a></h4>
 <p>All adoptable device CLIs, event and liveview CLI work on the idea you have multiple cameras, multiple lights, multiple events or multiple liveviews. As such, they have four variations:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># list all devices (or events/liveviews)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>unifi-protect cameras
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># list short list of all devices (or events/liveviews)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>unifi-protect cameras list-ids
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># list a specific device (or event/liveview)</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>unifi-protect cameras DEVICE_ID
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># run a command against a specific device (or event/liveview)</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>unifi-protect cameras DEVICE_ID COMMAND
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># list all devices (or events/liveviews)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>unifi-protect cameras
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># list short list of all devices (or events/liveviews)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>unifi-protect cameras list-ids
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># list a specific device (or event/liveview)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>unifi-protect cameras DEVICE_ID
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># run a command against a specific device (or event/liveview)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>unifi-protect cameras DEVICE_ID COMMAND
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1113,62 +1122,62 @@ credentials to provided environment variables, but CLI args are also supported.<
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Plain</label><label for="__tabbed_1_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>$ unifi-protect cameras list-ids
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>61b3f5c7033ea703e7000424: G4 Bullet
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>61f9824e004adc03e700132c: G4 PTZ
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>61be1d2f004bda03e700ab12: G4 Dome
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>$ unifi-protect cameras list-ids
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>61b3f5c7033ea703e7000424: G4 Bullet
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>61f9824e004adc03e700132c: G4 PTZ
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>61be1d2f004bda03e700ab12: G4 Dome
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>$ unifi-protect --output-format json cameras list-ids
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="o">[</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  <span class="o">[</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="s2">&quot;61b3f5c7033ea703e7000424&quot;</span>,
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="s2">&quot;G4 Bullet&quot;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  <span class="o">]</span>,
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>  <span class="o">[</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="s2">&quot;61f9824e004adc03e700132c&quot;</span>,
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="s2">&quot;G4 PTZ&quot;</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>  <span class="o">]</span>,
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a>  <span class="o">[</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a>    <span class="s2">&quot;61be1d2f004bda03e700ab12&quot;</span>,
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a>    <span class="s2">&quot;G4 Done&quot;</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a>  <span class="o">]</span>,
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a>  ...
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="o">]</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>$ unifi-protect --output-format json cameras list-ids
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="o">[</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  <span class="o">[</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="s2">&quot;61b3f5c7033ea703e7000424&quot;</span>,
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="s2">&quot;G4 Bullet&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  <span class="o">]</span>,
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  <span class="o">[</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="s2">&quot;61f9824e004adc03e700132c&quot;</span>,
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="s2">&quot;G4 PTZ&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  <span class="o">]</span>,
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span class="o">[</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>    <span class="s2">&quot;61be1d2f004bda03e700ab12&quot;</span>,
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="s2">&quot;G4 Done&quot;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>  <span class="o">]</span>,
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>  ...
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="o">]</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 <h6 id="check-if-a-light-is-online">Check if a Light is Online<a class="headerlink" href="#check-if-a-light-is-online" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 <span class="p">|</span> jq .isConnected
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">true</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 <span class="p">|</span> jq .isConnected
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nb">true</span>
 </code></pre></div></td></tr></table></div>
 <h6 id="take-snapshot-of-camera">Take Snapshot of Camera<a class="headerlink" href="#take-snapshot-of-camera" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-snapshot output.jpg
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-snapshot output.jpg
 </code></pre></div></td></tr></table></div>
 <h4 id="adoptable-devices-cli-commands">Adoptable Devices CLI Commands<a class="headerlink" href="#adoptable-devices-cli-commands" title="Permanent link">&para;</a></h4>
 <p>Adoptable devices (Cameras, Chimes, Doorlocks, Lights, Sensors, Viewers) all have some commands in common.</p>
@@ -1219,17 +1228,17 @@ credentials to provided environment variables, but CLI args are also supported.<
 </tbody>
 </table>
 <h4 id="backup-cli">Backup CLI<a class="headerlink" href="#backup-cli" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span>
-<span class="normal"><a href="#__codelineno-9-5">5</a></span>
-<span class="normal"><a href="#__codelineno-9-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>$ unifi-protect backup --help
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a> Usage: unifi-protect backup <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a> Backup CLI.
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a> The backup CLI is still very WIP <span class="k">in</span> progress and consider experimental and potentially unstable <span class="o">(</span>interface may change <span class="k">in</span> the future<span class="o">)</span>.
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>$ unifi-protect backup --help
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a> Usage: unifi-protect backup <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a> Backup CLI.
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a> The backup CLI is still very WIP <span class="k">in</span> progress and consider experimental and potentially unstable <span class="o">(</span>interface may change <span class="k">in</span> the future<span class="o">)</span>.
 </code></pre></div></td></tr></table></div>
 <h5 id="backup-options">Backup Options<a class="headerlink" href="#backup-options" title="Permanent link">&para;</a></h5>
 <table>
@@ -1510,15 +1519,15 @@ credentials to provided environment variables, but CLI args are also supported.<
 </tbody>
 </table>
 <h5 id="backing-up-camera-events">Backing Up Camera Events<a class="headerlink" href="#backing-up-camera-events" title="Permanent link">&para;</a></h5>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span>
-<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>$ unifi-protect backup events --help
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a> Usage: unifi-protect backup events <span class="o">[</span>OPTIONS<span class="o">]</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a> Backup thumbnails and video clips <span class="k">for</span> camera events.
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>$ unifi-protect backup events --help
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a> Usage: unifi-protect backup events <span class="o">[</span>OPTIONS<span class="o">]</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a> Backup thumbnails and video clips <span class="k">for</span> camera events.
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>
@@ -1595,56 +1604,56 @@ credentials to provided environment variables, but CLI args are also supported.<
 </div>
 <h5 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h5>
 <h6 id="backup-all-events">Backup All Events<a class="headerlink" href="#backup-all-events" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>unifi-protect backup events
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>unifi-protect backup events
 </code></pre></div></td></tr></table></div>
 <h6 id="backup-all-smart-detections-for-the-past-hour">Backup All Smart Detections for the Past Hour<a class="headerlink" href="#backup-all-smart-detections-for-the-past-hour" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>unifi-protect backup --start <span class="s2">&quot;1 hour ago&quot;</span> events -t smartDetectZone
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>unifi-protect backup --start <span class="s2">&quot;1 hour ago&quot;</span> events -t smartDetectZone
 </code></pre></div></td></tr></table></div>
 <h6 id="backup-all-person-smart-detections-from-december-31st-at-10pm-to-january-1st-at-5am">Backup All Person Smart Detections from December 31st at 10PM to January 1st at 5AM<a class="headerlink" href="#backup-all-person-smart-detections-from-december-31st-at-10pm-to-january-1st-at-5am" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>unifi-protect backup --start <span class="s2">&quot;2021-12-31T22:00:00&quot;</span> --end <span class="s2">&quot;2022-1-1T05:00:00&quot;</span> events -t smartDetectZone -m person
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>unifi-protect backup --start <span class="s2">&quot;2021-12-31T22:00:00&quot;</span> --end <span class="s2">&quot;2022-1-1T05:00:00&quot;</span> events -t smartDetectZone -m person
 </code></pre></div></td></tr></table></div>
 <h4 id="camera-cli">Camera CLI<a class="headerlink" href="#camera-cli" title="Permanent link">&para;</a></h4>
 <p>Inherits <a href="#multiple-item-cli-commands">Multiple Item CLI Commands</a> and <a href="#adoptable-devices-cli-commands">Adoptable Devices CLI Commands</a>.</p>
 <h5 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h5>
 <h6 id="take-snapshot-of-camera_1">Take Snapshot of Camera<a class="headerlink" href="#take-snapshot-of-camera_1" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-snapshot output.jpg
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-snapshot output.jpg
 </code></pre></div></td></tr></table></div>
 <h6 id="export-video-from-camera">Export Video From Camera<a class="headerlink" href="#export-video-from-camera" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-video export.mp4 <span class="m">2022</span>-6-1T00:00:00 <span class="m">2022</span>-6-1T00:00:30
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 save-video export.mp4 <span class="m">2022</span>-6-1T00:00:00 <span class="m">2022</span>-6-1T00:00:30
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Timezones</p>
 <p>See the section on <a href="#timezone">Timezones</a> for determined what timezone your datetimes are in.</p>
 </div>
 <h6 id="play-audio-file-to-cameras-speaker">Play Audio File to Cameras Speaker<a class="headerlink" href="#play-audio-file-to-cameras-speaker" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 play-audio test.mp3
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 play-audio test.mp3
 </code></pre></div></td></tr></table></div>
 <h6 id="include-unadopted-cameras-in-list">Include Unadopted Cameras in list<a class="headerlink" href="#include-unadopted-cameras-in-list" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>$ unifi-protect -u cameras list-ids
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>$ unifi-protect -u cameras list-ids
 </code></pre></div></td></tr></table></div>
 <h6 id="adopt-an-unadopted-camera">Adopt an Unadopted Camera<a class="headerlink" href="#adopt-an-unadopted-camera" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>$ unifi-protect -u cameras 61ddb66b018e2703e7008c19 adopt
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>$ unifi-protect -u cameras 61ddb66b018e2703e7008c19 adopt
 </code></pre></div></td></tr></table></div>
 <h6 id="enable-ssh-on-camera">Enable SSH on Camera<a class="headerlink" href="#enable-ssh-on-camera" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
-<span class="normal"><a href="#__codelineno-19-2">2</a></span>
-<span class="normal"><a href="#__codelineno-19-3">3</a></span>
-<span class="normal"><a href="#__codelineno-19-4">4</a></span>
-<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 set-ssh <span class="nb">true</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># get current value to verify</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 <span class="p">|</span> jq .isSshEnabled
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nb">true</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 set-ssh <span class="nb">true</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># get current value to verify</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>$ unifi-protect cameras 61ddb66b018e2703e7008c19 <span class="p">|</span> jq .isSshEnabled
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nb">true</span>
 </code></pre></div></td></tr></table></div>
 <h6 id="reboot-camera">Reboot Camera<a class="headerlink" href="#reboot-camera" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>$ unifi-protect lights 61b3f5c801f8a703e7000428 reboot
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>$ unifi-protect lights 61b3f5c801f8a703e7000428 reboot
 </code></pre></div></td></tr></table></div>
 <h6 id="reboot-all-cameras">Reboot All Cameras<a class="headerlink" href="#reboot-all-cameras" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
-<span class="normal"><a href="#__codelineno-21-2">2</a></span>
-<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">for</span> id <span class="k">in</span> <span class="k">$(</span>unifi-protect cameras list-ids <span class="p">|</span> awk <span class="s1">&#39;{ print $1 }&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a>    unifi-protect cameras <span class="nv">$id</span> reboot
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">done</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">for</span> id <span class="k">in</span> <span class="k">$(</span>unifi-protect cameras list-ids <span class="p">|</span> awk <span class="s1">&#39;{ print $1 }&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>    unifi-protect cameras <span class="nv">$id</span> reboot
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
   <hr>
@@ -1652,7 +1661,7 @@ credentials to provided environment variables, but CLI args are also supported.<
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 11, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2022</span>
       
         <br>
         Created:
@@ -1667,10 +1676,12 @@ credentials to provided environment variables, but CLI args are also supported.<
   
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -1748,7 +1759,7 @@ credentials to provided environment variables, but CLI args are also supported.<
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../assets/javascripts/bundle.48f2be22.min.js"></script>
       
     
   </body>
