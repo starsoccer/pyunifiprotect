@@ -6,7 +6,7 @@
 #
 aiofiles==22.1.0
     # via pyunifiprotect (pyproject.toml)
-aiohttp==3.8.1
+aiohttp==3.8.4
     # via pyunifiprotect (pyproject.toml)
 aioshutil==1.1
     # via pyunifiprotect (pyproject.toml)
@@ -24,7 +24,7 @@ asyncify==0.9.1
     # via pyunifiprotect (pyproject.toml)
 attrs==22.1.0
     # via aiohttp
-av==9.2.0
+av==10.0.0
     # via pyunifiprotect (pyproject.toml)
 backcall==0.2.0
     # via ipython
