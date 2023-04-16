@@ -2,14 +2,13 @@
 from __future__ import annotations
 
 import asyncio
-from collections import deque
 from copy import deepcopy
 from dataclasses import dataclass
 from datetime import datetime
 import logging
 from pathlib import Path
 from tempfile import gettempdir
-from typing import Any, Deque, Dict, List, Optional, Set, Tuple, cast
+from typing import Any, Dict, List, Optional, Set, Tuple, cast
 from uuid import UUID
 
 from aiohttp.client_exceptions import ServerDisconnectedError
@@ -167,7 +166,7 @@ class Bootstrap(ProtectBaseObject):
     _has_smart: Optional[bool] = PrivateAttr(None)
     _has_media: Optional[bool] = PrivateAttr(None)
     _recording_start: Optional[datetime] = PrivateAttr(None)
-    _refresh_tasks: Deque[asyncio.Task[None]] = PrivateAttr(deque([], 10))
+    _refresh_tasks: Set[asyncio.Task[None]] = PrivateAttr(set())
 
     @classmethod
     def unifi_dict_to_dict(cls, data: Dict[str, Any]) -> Dict[str, Any]:
@@ -490,7 +489,9 @@ class Bootstrap(ProtectBaseObject):
             try:
                 model_type = ModelType(action["modelKey"])
                 device_id = action["id"]
-                self._refresh_tasks.append(asyncio.create_task(self.refresh_device(model_type, device_id)))
+                task = asyncio.create_task(self.refresh_device(model_type, device_id))
+                self._refresh_tasks.add(task)
+                task.add_done_callback(self._refresh_tasks.discard)
             except (ValueError, IndexError):
                 msg = f"{action['action']} packet caused invalid state. Unable to refresh device."
             else:
