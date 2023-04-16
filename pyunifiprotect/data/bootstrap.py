@@ -67,7 +67,11 @@ CAMERA_EVENT_ATTR_MAP: Dict[EventType, Tuple[str, str]] = {
     EventType.RING: ("last_ring", "last_ring_event_id"),
 }
 
-TMP_RELEASE_CACHE = Path(gettempdir()) / "ufp_cache" / "release_cache.json"
+if Path("/config/.HA_VERSION").exists():
+    TMP_RELEASE_CACHE = Path("/config/.storage/unifiprotect_cache/release_cache.json")
+else:
+    TMP_RELEASE_CACHE = Path(gettempdir()) / "ufp_cache" / "release_cache.json"
+
 RELEASE_CACHE = Path(__file__).parent.parent / "release_cache.json"
 
 
