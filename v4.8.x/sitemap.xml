@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://angellusmortis.github.io/pyunifiprotect/latest/v4.8.x/</loc>
-         <lastmod>2023-04-22</lastmod>
+         <lastmod>2023-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://angellusmortis.github.io/pyunifiprotect/latest/v4.8.x/api/</loc>
-         <lastmod>2023-04-22</lastmod>
+         <lastmod>2023-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://angellusmortis.github.io/pyunifiprotect/latest/v4.8.x/cli/</loc>
-         <lastmod>2023-04-22</lastmod>
+         <lastmod>2023-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://angellusmortis.github.io/pyunifiprotect/latest/v4.8.x/dev/</loc>
-         <lastmod>2023-04-22</lastmod>
+         <lastmod>2023-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

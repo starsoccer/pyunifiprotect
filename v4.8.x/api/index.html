@@ -956,6 +956,8 @@
         
           
         
+          
+        
       </ul>
     </nav>
   
@@ -2077,6 +2079,8 @@
   
     <nav class="md-nav" aria-label="ProtectBaseObject">
       <ul class="md-nav__list">
+        
+          
         
           
         
@@ -6999,7 +7003,7 @@ value. Protect app gives the options for 60x (fps=4), 120x (fps=8), 300x
 
 
 <h4 id="pyunifiprotect.data.base.ProtectAdoptableDeviceModel.get_changed" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_changed</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
+<code class="highlight language-python"><span class="n">get_changed</span><span class="p">(</span><span class="n">data_before_changes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
 
 <a href="#pyunifiprotect.data.base.ProtectAdoptableDeviceModel.get_changed" class="headerlink" title="Permanent link">&para;</a></h4>
 
@@ -7159,6 +7163,24 @@ creation, will raise <code>BadRequest</code></p>
   
       <p>Base class for creating Python objects from UFP JSON data.</p>
 <p>Use the static method <code>.from_unifi_dict()</code> to create objects from UFP JSON data from then the main class constructor.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyunifiprotect.data.base.ProtectBaseObject.dict_with_excludes" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">dict_with_excludes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
+
+<a href="#pyunifiprotect.data.base.ProtectBaseObject.dict_with_excludes" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a dict of the current object without any UFP objects converted to dicts.</p>
 
   </div>
 
@@ -7542,7 +7564,7 @@ they can be combined in a single PATCH.</p>
 
 
 <h4 id="pyunifiprotect.data.base.ProtectModelWithId.revert_changes" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">revert_changes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+<code class="highlight language-python"><span class="n">revert_changes</span><span class="p">(</span><span class="n">data_before_changes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
 
 <a href="#pyunifiprotect.data.base.ProtectModelWithId.revert_changes" class="headerlink" title="Permanent link">&para;</a></h4>
 
@@ -7560,7 +7582,7 @@ they can be combined in a single PATCH.</p>
 
 
 <h4 id="pyunifiprotect.data.base.ProtectModelWithId.save_device" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">save_device</span><span class="p">(</span><span class="n">force_emit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">revert_on_fail</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+<code class="highlight language-python"><span class="n">save_device</span><span class="p">(</span><span class="n">data_before_changes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">force_emit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">revert_on_fail</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-async"><code>async</code></small>
